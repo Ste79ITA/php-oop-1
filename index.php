@@ -1,16 +1,24 @@
 <?php
 include_once __DIR__ . '/models/Production.php';
+include_once __DIR__ . '/models/Movie.php';
+include_once __DIR__ . '/models/Serie.php';
 
 
-$avatar = new Production('Avatar','English', 8 );
+$movie1 = new Movie('Avatar','English', 8, 2923, 162);
 
-$ghostbusters = new Production('Ghostbusters','English', 7);
+$movie2 = new Movie('Avatar 2: The way of water', 'English', 8, 2243, 192);
 
-$movies = [$avatar, $ghostbusters];
+$movie3 = new Movie('Ghostbusters','English', 7, 240, 105);
+
+
+
+$movies = [$movie1, $movie2, $movie3];
 
 foreach($movies as $movie) {
 
-echo $movie->getDetails() . '<br>';
+
+echo $movie->getDetails() . '<br>' . $movie->getDuration() . '<br><br>';
+
  };
 
 ?>

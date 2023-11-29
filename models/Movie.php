@@ -5,7 +5,7 @@ class Movie extends Production {
 protected $profit;
 protected $duration;
 
-public function __construct(string $title,string $language,int $rating = 0, int $profit, int $duration)
+public function __construct($title, $language, $rating, int $profit, int $duration)
 {
     parent::__construct($title, $language, $rating);
     $this->setProfit($profit);
@@ -16,23 +16,23 @@ public function __construct(string $title,string $language,int $rating = 0, int 
 
 public function setProfit(int $profit) {
     if ($profit) {
-        $this->profit = $profit;
+        $this->profit = $profit . 'Billions';
     }
 }
 
 public function setDuration(int $duration) {
     if ($duration) {
-        $this->duration = $duration;
+        $this->duration = $duration . ' min';
     }
 }
 
     //GET
 
 public function getDuration() {
-    return $this->duration;
+    return "Duration: $this->duration";
 }
 public function getProfit() {
-    return $this->profit;
+    return "Profit: $this->profit";
 }
 
 }
