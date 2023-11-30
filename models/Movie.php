@@ -6,7 +6,7 @@ class Movie extends Production
     protected $profit;
     protected $duration;
 
-    public function __construct($title, $language, $rating, int $profit, int $duration)
+    public function __construct(string $title, string $language, int $rating = 0, int $profit = 0, int $duration = 0)
     {
         parent::__construct($title, $language, $rating);
         $this->setProfit($profit);
@@ -17,14 +17,14 @@ class Movie extends Production
 
     public function setProfit(int $profit)
     {
-        if ($profit) {
+        if (is_numeric($profit) && $profit > 0) {
             $this->profit = $profit;
         }
     }
 
     public function setDuration(int $duration)
     {
-        if ($duration) {
+        if (is_numeric($duration) && $duration > 0) {
             $this->duration = $duration;
         }
     }

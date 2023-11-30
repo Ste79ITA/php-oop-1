@@ -5,7 +5,7 @@ class Serie extends Production
 {
     protected $seasons;
 
-    public function __construct($title, $language, $rating, int $seasons)
+    public function __construct(string $title, string $language, int $rating, int $seasons)
     {
         parent::__construct($title, $language, $rating);
         $this->setSeasons($seasons);
@@ -13,7 +13,7 @@ class Serie extends Production
 
     public function setSeasons($seasons)
     {
-        if ($seasons) {
+        if (is_numeric($seasons) && $seasons > 0) {
             $this->seasons = $seasons;
         }
     }
